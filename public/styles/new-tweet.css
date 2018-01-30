@@ -1,0 +1,32 @@
+.new-tweet {
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: #DCDCDC;
+  padding: 5px;
+}
+
+h2 {
+  border-bottom: 1px solid black;
+  margin-top: 0px;
+  margin-bottom: 1px;
+  padding-right: 4px;
+  padding-left: 10px;
+}
+
+span.counter {
+  position: absolute;
+  padding-left: 350px;
+  padding-top: 5px;
+}
+
+textarea {
+  margin: auto;
+  width: 100%;
+  height: 70px;
+  display: block;
+}
+
+.textarea-wrapper {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
