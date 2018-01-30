@@ -1,4 +1,4 @@
-.tweet {
+.tweet-box {
   border: 2px solid black;
   border-radius: 15px;
 }
@@ -9,30 +9,36 @@
   clear: both;
 }
 
-.tweet header {
+.tweet-box header {
   background-color: #DCDCDC;
   border-radius: 15px 15px 0px 0px;
 }
 
-.tweet footer {
+.tweet-box footer {
   border-top: 1px solid black;
+  padding: 5px;
 }
 
-.tweet .screenpic {
+.tweet-box .screenpic {
   float: left;
   padding: 10px;
   border-radius: 15px;
 }
 
-.tweet .name {
+.tweet-box .name {
   float: left;
   padding-top: 21px;
   font-size: 25px;
   font-weight: bold;
 }
 
-.tweet .username {
+.tweet-box .username {
   float: right;
   padding-top: 25px;
+  padding-right: 10px;
   font-size: 17px;
+}
+
+.tweet-box p {
+  padding: 10px;
 }
