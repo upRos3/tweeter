@@ -13,7 +13,7 @@ $(document).ready(function() {
     } else {
       charCounter.css({
         'font-style': 'normal',
-        'color': 'black'
+        'color': '#244751'
       });
     }
   });
