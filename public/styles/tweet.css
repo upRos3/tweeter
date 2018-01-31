@@ -1,6 +1,7 @@
 .tweet-box {
   border: 2px solid black;
   border-radius: 15px;
+  margin-bottom: 15px;
 }
 
 .clearfix:after {
@@ -12,20 +13,23 @@
 .tweet-box header {
   background-color: #DCDCDC;
   border-radius: 15px 15px 0px 0px;
+  opacity: 0.7;
 }
 
-article .tweet-box:hover{
+/* look into jquery
+article .tweet-box:hover {
 
-}
+} */
 
-.tweet-box:hover {
+./*tweet-box:hover {
   background-color: #AFAFAF;
-}
+}*/
 
-.tweet-box header:hover {
+/*.tweet-box header:hover {
   background-color: #00a087;
   color: #e8fdff;
-}
+  opacity: 1
+}*/
 
 .tweet-box footer {
   border-top: 1px solid black;
