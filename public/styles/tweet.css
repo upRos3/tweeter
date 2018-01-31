@@ -14,12 +14,26 @@
   border-radius: 15px 15px 0px 0px;
 }
 
+article .tweet-box:hover{
+
+}
+
+.tweet-box:hover {
+  background-color: #AFAFAF;
+}
+
+.tweet-box header:hover {
+  background-color: #00a087;
+  color: #e8fdff;
+}
+
 .tweet-box footer {
   border-top: 1px solid black;
   padding: 5px;
 }
 
 .tweet-box .screenpic {
+  height: auto;
   float: left;
   padding: 10px;
   border-radius: 15px;
@@ -41,4 +55,12 @@
 
 .tweet-box p {
   padding: 10px;
+}
+
+.tweet-box img {
+  height: 15px;
+  float: right;
+  padding-right: 15px;
+  padding-left: 5px;
+  margin-top: 2px;
 }
