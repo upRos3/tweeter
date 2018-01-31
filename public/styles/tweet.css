@@ -16,23 +16,9 @@
   opacity: 0.7;
 }
 
-/* look into jquery
-article .tweet-box:hover {
-
-} */
-
-./*tweet-box:hover {
-  background-color: #AFAFAF;
-}*/
-
-/*.tweet-box header:hover {
-  background-color: #00a087;
-  color: #e8fdff;
-  opacity: 1
-}*/
 
 .tweet-box footer {
-  border-top: 1px solid black;
+  border-top: 2px solid black;
   padding: 5px;
 }
 
@@ -67,4 +53,8 @@ article .tweet-box:hover {
   padding-right: 15px;
   padding-left: 5px;
   margin-top: 2px;
+}
+
+.tweet-box footer img {
+  opacity: 0;
 }

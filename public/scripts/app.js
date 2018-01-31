@@ -95,9 +95,11 @@ $(document).ready(function() {
 
   return $tweetBox;
 
+  // Need to add function to show when the tweet was made.
+
   }
 
-
+  // Creates extra CSS for rendered elements
 
   $('#tweets-container').on("mouseenter", "header", function(event) {
     $(this).css({
@@ -108,13 +110,44 @@ $(document).ready(function() {
   });
 
   $('#tweets-container').on("mouseleave", "header", function(event) {
-  $(this).css({
+    $(this).css({
       'opacity': '0.7',
       'background-color': '#DCDCDC',
       'color': '#244751'
     });
   });
 
-  renderTweets(data);
+// Need to sort out at later date. Not a priority.
+
+  // $('#tweets-container').on("mouseenter", "footer img", function(event) {
+  //   $(this).css({
+  //     'opacity': '1',
+  //   });
+  // });
+
+  // $('#tweets-container').on("mouseleave", "footer img", function(event) {
+  //   $(this).css({
+  //     'opacity': '0.7'
+  //   });
+  // });
+
+  let getTweets = function (cb) {
+    $.get('/tweets', data, function(refreshedTweets){
+        renderTweets(refreshedTweets);
+    });
+  }
+
+
+  let $button = $('#tweetButton');
+  $button.on('click', function (event) {
+    event.preventDefault();
+    let $tweetText = $('#writeTweet').serialize()
+    //first post then get
+    $.post("/tweets", $tweetText, function(data, status, xhr) {
+      getTweets(data);
+    });
+  });
+
+
 });
 
