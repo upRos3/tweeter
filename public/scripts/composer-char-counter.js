@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('.new-tweet textarea').keyup(function() {
+  $('#writeTweet').keyup(function() {
     let value = $(this).val().length;
     let charLimit = 140 - value;
     let charCounter = $(this).closest('form').children(".counter");

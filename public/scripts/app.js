@@ -5,7 +5,6 @@ $(document).ready(function() {
       $('#tweets-container').prepend(createTweetElement(obj));
     }
   }
-
 // Creates HTML for tweets
 
   function createTweetElement(tweet) {
@@ -17,9 +16,9 @@ $(document).ready(function() {
   let $avatarImg = $("<img>").addClass('screenpic').attr('src', tweet.user.avatars.small);;
 
   $tweetBox.append($header);
-  $header.append($avatarImg);
   $header.append($spanName);
   $header.append($spanUser);
+  $header.append($avatarImg);
 
   let $div = $("<div>");
   let $mainTweet = $("<p>").addClass("main-tweet").text(tweet.content.text);
@@ -107,6 +106,12 @@ $(document).ready(function() {
         renderTweets(refreshedTweets);
     });
   }
+
+  $('#newTweetButton').on('click', function () {
+    $('#new-tweet').slideToggle(400, function () {
+      $('#writeTweet').focus();
+    });
+  });
 
 //BUG: Doesn't load page on first GET. Loads data fine from first tweet.
 
