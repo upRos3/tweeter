@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   function renderTweets(tweets) {
     for (let obj of tweets) {
-      $('#tweets-container').append(createTweetElement(obj));
+      $('#tweets-container').prepend(createTweetElement(obj));
     }
   }
 
@@ -83,7 +83,7 @@ $(document).ready(function() {
     let $tweetText = $('#writeTweet');
     let tweetLen = $('#writeTweet').val().length;
 
-// Flash messsages need CSS changed so it's seperate from scrolling.
+    // Validity checks
 
     if (tweetLen === 0) {
       $.flash("Your tweet is empty!");
