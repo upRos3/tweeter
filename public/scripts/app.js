@@ -107,6 +107,7 @@ $(document).ready(function() {
     });
   }
 
+  //Toggles Tweet Composer
   $('#newTweetButton').on('click', function () {
     $('#new-tweet').slideToggle(400, function () {
       $('#writeTweet').focus();
