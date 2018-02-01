@@ -1,12 +1,3 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
-// Test / driver code (temporary). Eventually will get this from the server.
-
-
 $(document).ready(function() {
 
   function renderTweets(tweets) {
@@ -14,6 +5,8 @@ $(document).ready(function() {
       $('#tweets-container').append(createTweetElement(obj));
     }
   }
+
+// Creates HTML for tweets
 
   function createTweetElement(tweet) {
 
@@ -84,23 +77,25 @@ $(document).ready(function() {
   //   });
   // });
 
-  let getTweets = function (cb) {
-    $.get('/tweets', cb, function(refreshedTweets){
-        renderTweets(refreshedTweets);
-    });
-  }
-
-
   let $button = $('#tweetButton');
   $button.on('click', function (event) {
     event.preventDefault();
-    let $tweetText = $('#writeTweet').serialize()
-    //first post then get
+
+    // Ajax to POST tweet data
+    let $tweetText = $('#writeTweet').serialize();
     $.post("/tweets", $tweetText, function(data, status, xhr) {
       getTweets(data);
     });
   });
 
+  // Callback Ajax function to GET tweet data
+  let getTweets = function (cb) {
+    $.get('/tweets', cb, function(refreshedTweets) {
+        renderTweets(refreshedTweets);
+    });
+  }
+
+//BUG: Doesn't load page on first GET. Loads data fine from first tweet.
 
 });
 
