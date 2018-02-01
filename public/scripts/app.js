@@ -91,7 +91,7 @@ $(document).ready(function() {
      }
 
     if (tweetLen > 140) {
-      $.flash("Brevity is the soul of wit");
+      $.flash("\"Brevity is the soul of wit\" - Your tweet is too long! ");
       return null;
       }
 
