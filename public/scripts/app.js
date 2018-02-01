@@ -80,10 +80,23 @@ $(document).ready(function() {
   let $button = $('#tweetButton');
   $button.on('click', function (event) {
     event.preventDefault();
+    let $tweetText = $('#writeTweet');
+    let tweetLen = $('#writeTweet').val().length;
+
+// Flash messsages need CSS changed so it's seperate from scrolling.
+
+    if (tweetLen === 0) {
+      $.flash("Your tweet is empty!");
+       return null;
+     }
+
+    if (tweetLen > 140) {
+      $.flash("Brevity is the soul of wit");
+      return null;
+      }
 
     // Ajax to POST tweet data
-    let $tweetText = $('#writeTweet').serialize();
-    $.post("/tweets", $tweetText, function(data, status, xhr) {
+    $.post("/tweets", $tweetText.serialize(), function(data, status, xhr) {
       getTweets(data);
     });
   });
