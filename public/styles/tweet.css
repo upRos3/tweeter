@@ -45,6 +45,7 @@
 
 .tweet-box p {
   padding: 10px;
+  overflow-wrap: break-word;
 }
 
 .tweet-box img {

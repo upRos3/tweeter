@@ -15,6 +15,10 @@ h2 {
   padding-left: 10px;
 }
 
+#writeTweet {
+  resize: none;
+}
+
 span.counter {
   float: right;
   padding-left: 335px;
