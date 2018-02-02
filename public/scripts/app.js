@@ -7,8 +7,7 @@ $(document).ready(function() {
     }
   }
 
-/* Known bugs: * Need to highlight whole tweetbox
-               * Clear textbox after tweet
+/* Known bugs: * Clear textbox after tweet
                * Make sure charCounter resets after box clear
 */
 
@@ -48,35 +47,27 @@ $(document).ready(function() {
 
   }
 
-  // Creates extra CSS for rendered elements. This needs to be fixed so that
-  // only header goes green but when mouseenter for whole element
+  // Creates extra CSS for rendered elements.
 
-  $("#tweets-container").on("mouseenter", "header", function(event) {
-    $(this).css({
+  $("#tweets-container").on("mouseenter", "article", function(event) {
+    $(this).find("header").css({
       "opacity": "1",
       "background-color": "#00a087",
       "color": "#e8fdff"
     });
+    $(this).find("footer img").css({
+      "opacity": "1"
+    });
   });
 
-  $("#tweets-container").on("mouseleave", "header", function(event) {
-    $(this).css({
+  $("#tweets-container").on("mouseleave", "article", function(event) {
+    $(this).find("header").css({
       "opacity": "0.7",
       "background-color": "#DCDCDC",
       "color": "#244751"
     });
-  });
-
-
-  $("#tweets-container").on("mouseenter", "footer img", function(event) {
-    $(this).css({
-      "opacity": "1",
-    });
-  });
-
-  $("#tweets-container").on("mouseleave", "footer img", function(event) {
-    $(this).css({
-      "opacity": "0.5",
+    $(this).find("footer img").css({
+      "opacity": "0"
     });
   });
 
@@ -100,9 +91,12 @@ $(document).ready(function() {
 
     // Ajax to POST tweet data
     $.post("/tweets", $tweetText.serialize(), function(data, status, xhr) {
-      getTweets();
+     getTweets();
     });
+    $("#new-tweet").slideToggle(400);
+    $.flash("Your tweet has been posted!")
   });
+
 
   // Callback Ajax function to GET tweet data
   let getTweets = function () {
@@ -114,12 +108,11 @@ $(document).ready(function() {
   //Ensures all tweets are rendered at document load
   getTweets();
 
-  // Auto close when tweet is POSTed
-  //Toggles Tweet Composer
+  //Toggles and resets Tweet Composer
   $("#newTweetButton").on("click", function () {
     $("#new-tweet").slideToggle(400, function () {
-      $("#writeTweet").val("");
-      $("#writeTweet").focus();
+      $("#writeTweet").val("").focus();
+      $(this).find(".counter").text("140");
     });
   });
 
