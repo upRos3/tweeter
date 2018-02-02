@@ -1,3 +1,5 @@
+// Show time elapsed since tweet was posted
+
 function timeDifference(current, previous) {
 
   let msPerMinute = 60 * 1000;

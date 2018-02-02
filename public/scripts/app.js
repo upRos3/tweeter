@@ -7,10 +7,6 @@ $(document).ready(function() {
     }
   }
 
-/* Known bugs: * Clear textbox after tweet
-               * Make sure charCounter resets after box clear
-*/
-
   // Creates HTML for tweets
   function createTweetElement(tweet) {
 
@@ -93,7 +89,10 @@ $(document).ready(function() {
     $.post("/tweets", $tweetText.serialize(), function(data, status, xhr) {
      getTweets();
     });
-    $("#new-tweet").slideToggle(400);
+    $("#new-tweet").slideToggle(400, function () {
+      $("#writeTweet").val("").focus();
+      $(this).find(".counter").text("140");
+    });
     $.flash("Your tweet has been posted!")
   });
 
@@ -110,10 +109,7 @@ $(document).ready(function() {
 
   //Toggles and resets Tweet Composer
   $("#newTweetButton").on("click", function () {
-    $("#new-tweet").slideToggle(400, function () {
-      $("#writeTweet").val("").focus();
-      $(this).find(".counter").text("140");
-    });
+    $("#new-tweet").slideToggle(400);
   });
 
 });
