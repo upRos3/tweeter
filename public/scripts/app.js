@@ -1,24 +1,25 @@
 $(document).ready(function() {
 
   function renderTweets(tweets) {
+    $('.tweet-box').remove();
     for (let obj of tweets) {
       $('#tweets-container').prepend(createTweetElement(obj));
     }
   }
-// Creates HTML for tweets
 
+  // Creates HTML for tweets
   function createTweetElement(tweet) {
 
   let $tweetBox = $("<article>").addClass("tweet-box");
   let $header = $("<header>").addClass("clearfix");
+  let $avatarImg = $("<img>").addClass('screenpic').attr('src', tweet.user.avatars.small);;
   let $spanName = $("<span>").addClass('name').text(tweet.user.name);
   let $spanUser = $("<span>").addClass('username').text(tweet.user.handle);
-  let $avatarImg = $("<img>").addClass('screenpic').attr('src', tweet.user.avatars.small);;
 
   $tweetBox.append($header);
+  $header.append($avatarImg);
   $header.append($spanName);
   $header.append($spanUser);
-  $header.append($avatarImg);
 
   let $div = $("<div>");
   let $mainTweet = $("<p>").addClass("main-tweet").text(tweet.content.text);
@@ -27,7 +28,7 @@ $(document).ready(function() {
   $div.append($mainTweet);
 
   let $footer = $("<footer>");
-  let $spanDate = $('<span>').addClass('time-since').text(tweet.created_at);
+  let $spanDate = $('<span>').addClass('time-since').text(timeDifference(Date.now(), tweet.created_at));
   let $imgLike = $('<img>').addClass('like').attr('src', 'images/vectors/heart.svg');
   let $imgReTweet = $('<img>').addClass('retweet').attr('src', 'images/vectors/retweet.svg');
   let $imgFlag = $('<img>').addClass('flag').attr('src', 'images/vectors/flag.svg');
@@ -39,8 +40,6 @@ $(document).ready(function() {
   $footer.append($imgFlag);
 
   return $tweetBox;
-
-  // Need to add function to show when the tweet was made.
 
   }
 
@@ -62,7 +61,7 @@ $(document).ready(function() {
     });
   });
 
-// Need to sort out at later date. Not a priority.
+  // Need to sort out at later date. Not a priority.
 
   // $('#tweets-container').on("mouseenter", "footer img", function(event) {
   //   $(this).css({
@@ -96,16 +95,19 @@ $(document).ready(function() {
 
     // Ajax to POST tweet data
     $.post("/tweets", $tweetText.serialize(), function(data, status, xhr) {
-      getTweets(data);
+      getTweets();
     });
   });
 
   // Callback Ajax function to GET tweet data
-  let getTweets = function (cb) {
-    $.get('/tweets', cb, function(refreshedTweets) {
+  let getTweets = function () {
+    $.get('/tweets', function(refreshedTweets) {
         renderTweets(refreshedTweets);
     });
   }
+
+  //Ensure's all tweets are rendered at document load
+  getTweets();
 
   //Toggles Tweet Composer
   $('#newTweetButton').on('click', function () {
@@ -113,8 +115,6 @@ $(document).ready(function() {
       $('#writeTweet').focus();
     });
   });
-
-//BUG: Doesn't load page on first GET. Loads data fine from first tweet.
 
 });
 
