@@ -7,6 +7,13 @@ $(document).ready(function() {
     }
   }
 
+/* Known bugs: * Text overflow on boxes
+               * Interaction buttons (like, RT etc) don't show
+               * Need to highlight whole tweetbox
+*/
+
+
+
   // Creates HTML for tweets
   function createTweetElement(tweet) {
 
