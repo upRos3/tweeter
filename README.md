@@ -1,17 +1,44 @@
-# Tweeter Project
+# Tweeter
 
-Tweeter is a simple, single-page Twitter clone.
-
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express and MongoDB back-end skills.
+A full stack development, Twitter clone for Lighthouse Labs.
 
 ## Getting Started
 
-1. Fork this repository, then clone your fork of this repository.
-2. Install dependencies using the `npm install` command.
-3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
-4. Go to <http://localhost:8080/> in your browser.
+Everything you will need is within the package.json file.
 
-## Dependencies
+### Prerequisites
 
-- Express
-- Node 5.10.x or above
+```
+* Node.js
+* Express
+* Chance
+* body-parser
+* Flash-Message
+* md5
+* Mongodb
+```
+
+### Installing
+
+```
+In your node.js terminal, the 'npm install' command should download all required dependencies. Please refer to the prerequisites to ensure all packages are installed.
+```
+
+## Running the server
+
+With nodemon installed, execute 'npm start local' in any folder within the repository to start listening.
+
+## Versioning
+
+This is version 1.0.0.
+
+## Screen shots
+
+
+## Authors
+
+* **J Rose** - *Lighthouse Labs Student* - [upRos3](https://github.com/upRos3)
+
+## Acknowledgments
+
+* Lighthouse Labs mentors and staff

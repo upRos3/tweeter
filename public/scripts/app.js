@@ -90,7 +90,7 @@ $(document).ready(function() {
      getTweets();
     });
     $("#new-tweet").slideToggle(400, function () {
-      $("#writeTweet").val("").focus();
+      $("#writeTweet").val("");
       $(this).find(".counter").text("140");
     });
     $.flash("Your tweet has been posted!")
@@ -109,7 +109,9 @@ $(document).ready(function() {
 
   //Toggles and resets Tweet Composer
   $("#newTweetButton").on("click", function () {
-    $("#new-tweet").slideToggle(400);
+    $("#new-tweet").slideToggle(400, function () {
+      $("#writeTweet").focus();
+    });
   });
 
 });
