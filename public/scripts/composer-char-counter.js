@@ -1,3 +1,5 @@
+// Function to dela with character counting
+
 $(document).ready(function() {
   $('#writeTweet').keyup(function() {
     let value = $(this).val().length;
