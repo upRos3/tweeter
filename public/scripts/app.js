@@ -1,27 +1,24 @@
 $(document).ready(function() {
 
   function renderTweets(tweets) {
-    $('.tweet-box').remove();
+    $(".tweet-box").remove();
     for (let obj of tweets) {
-      $('#tweets-container').prepend(createTweetElement(obj));
+      $("#tweets-container").prepend(createTweetElement(obj));
     }
   }
 
-/* Known bugs: * Text overflow on boxes
-               * Interaction buttons (like, RT etc) don't show
+/* Known bugs: * Interaction buttons (like, RT etc) don"t show
                * Need to highlight whole tweetbox
 */
-
-
 
   // Creates HTML for tweets
   function createTweetElement(tweet) {
 
   let $tweetBox = $("<article>").addClass("tweet-box");
   let $header = $("<header>").addClass("clearfix");
-  let $avatarImg = $("<img>").addClass('screenpic').attr('src', tweet.user.avatars.small);;
-  let $spanName = $("<span>").addClass('name').text(tweet.user.name);
-  let $spanUser = $("<span>").addClass('username').text(tweet.user.handle);
+  let $avatarImg = $("<img>").addClass("screenpic").attr("src", tweet.user.avatars.small);;
+  let $spanName = $("<span>").addClass("name").text(tweet.user.name);
+  let $spanUser = $("<span>").addClass("username").text(tweet.user.handle);
 
   $tweetBox.append($header);
   $header.append($avatarImg);
@@ -35,10 +32,10 @@ $(document).ready(function() {
   $div.append($mainTweet);
 
   let $footer = $("<footer>");
-  let $spanDate = $('<span>').addClass('time-since').text(timeDifference(Date.now(), tweet.created_at));
-  let $imgLike = $('<img>').addClass('like').attr('src', 'images/vectors/heart.svg');
-  let $imgReTweet = $('<img>').addClass('retweet').attr('src', 'images/vectors/retweet.svg');
-  let $imgFlag = $('<img>').addClass('flag').attr('src', 'images/vectors/flag.svg');
+  let $spanDate = $("<span>").addClass("time-since").text(timeDifference(Date.now(), tweet.created_at));
+  let $imgLike = $("<img>").addClass("like").attr("src", "images/vectors/heart.svg");
+  let $imgReTweet = $("<img>").addClass("retweet").attr("src", "images/vectors/retweet.svg");
+  let $imgFlag = $("<img>").addClass("flag").attr("src", "images/vectors/flag.svg");
 
   $tweetBox.append($footer);
   $footer.append($spanDate);
@@ -50,43 +47,43 @@ $(document).ready(function() {
 
   }
 
-  // Creates extra CSS for rendered elements
+  // Creates extra CSS for rendered elements. This needs to be fixed so that
+  // only header goes green but when mouseenter for whole element
 
-  $('#tweets-container').on("mouseenter", "header", function(event) {
+  $("#tweets-container").on("mouseenter", "header", function(event) {
     $(this).css({
-      'opacity': '1',
-      'background-color': '#00a087',
-      'color': '#e8fdff'
+      "opacity": "1",
+      "background-color": "#00a087",
+      "color": "#e8fdff"
     });
   });
 
-  $('#tweets-container').on("mouseleave", "header", function(event) {
+  $("#tweets-container").on("mouseleave", "header", function(event) {
     $(this).css({
-      'opacity': '0.7',
-      'background-color': '#DCDCDC',
-      'color': '#244751'
+      "opacity": "0.7",
+      "background-color": "#DCDCDC",
+      "color": "#244751"
     });
   });
 
-  // Need to sort out at later date. Not a priority.
 
-  // $('#tweets-container').on("mouseenter", "footer img", function(event) {
-  //   $(this).css({
-  //     'opacity': '1',
-  //   });
-  // });
+  $("#tweets-container").on("mouseenter", "footer img", function(event) {
+    $(this).css({
+      "opacity": "1",
+    });
+  });
 
-  // $('#tweets-container').on("mouseleave", "footer img", function(event) {
-  //   $(this).css({
-  //     'opacity': '0.7'
-  //   });
-  // });
+  $("#tweets-container").on("mouseleave", "footer img", function(event) {
+    $(this).css({
+      "opacity": "0.5",
+    });
+  });
 
-  let $button = $('#tweetButton');
-  $button.on('click', function (event) {
+  let $button = $("#tweetButton");
+  $button.on("click", function (event) {
     event.preventDefault();
-    let $tweetText = $('#writeTweet');
-    let tweetLen = $('#writeTweet').val().length;
+    let $tweetText = $("#writeTweet");
+    let tweetLen = $("#writeTweet").val().length;
 
     // Validity checks
 
@@ -108,18 +105,18 @@ $(document).ready(function() {
 
   // Callback Ajax function to GET tweet data
   let getTweets = function () {
-    $.get('/tweets', function(refreshedTweets) {
+    $.get("/tweets", function(refreshedTweets) {
         renderTweets(refreshedTweets);
     });
   }
 
-  //Ensure's all tweets are rendered at document load
+  //Ensure"s all tweets are rendered at document load
   getTweets();
 
   //Toggles Tweet Composer
-  $('#newTweetButton').on('click', function () {
-    $('#new-tweet').slideToggle(400, function () {
-      $('#writeTweet').focus();
+  $("#newTweetButton").on("click", function () {
+    $("#new-tweet").slideToggle(400, function () {
+      $("#writeTweet").focus();
     });
   });
 

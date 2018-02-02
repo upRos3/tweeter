@@ -33,13 +33,12 @@
     cursor: pointer;
     z-index: 181;
 }
-#flash div
-{
+
+#flash div {
     color: #fff;
 }
 
-#flash a
-{
+#flash a {
     font-size: inherit;
     color: inherit;
     font-family: inherit;

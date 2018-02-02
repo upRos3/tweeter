@@ -31,4 +31,4 @@ function timeDifference(current, previous) {
   else {
     return Math.round(elapsed/msPerYear ) + ' years ago';
   }
-}
+};

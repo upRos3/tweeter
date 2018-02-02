@@ -22,6 +22,10 @@
   padding: 5px;
 }
 
+.tweet-box footer img {
+  opacity: 0.5;
+}
+
 .tweet-box .screenpic {
   height: auto;
   float: left;
@@ -54,8 +58,4 @@
   padding-right: 15px;
   padding-left: 5px;
   margin-top: 2px;
-}
-
-.tweet-box footer img {
-  opacity: 0;
 }
