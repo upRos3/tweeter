@@ -7,8 +7,9 @@ $(document).ready(function() {
     }
   }
 
-/* Known bugs: * Interaction buttons (like, RT etc) don"t show
-               * Need to highlight whole tweetbox
+/* Known bugs: * Need to highlight whole tweetbox
+               * Clear textbox after tweet
+               * Make sure charCounter resets after box clear
 */
 
   // Creates HTML for tweets
@@ -110,12 +111,14 @@ $(document).ready(function() {
     });
   }
 
-  //Ensure"s all tweets are rendered at document load
+  //Ensures all tweets are rendered at document load
   getTweets();
 
+  // Auto close when tweet is POSTed
   //Toggles Tweet Composer
   $("#newTweetButton").on("click", function () {
     $("#new-tweet").slideToggle(400, function () {
+      $("#writeTweet").val("");
       $("#writeTweet").focus();
     });
   });
