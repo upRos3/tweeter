@@ -1,6 +1,6 @@
 # Tweeter
 
-A full stack development, Twitter clone for Lighthouse Labs.
+A full stack Twitter clone for Lighthouse Labs.
 
 ## Getting Started
 
@@ -34,6 +34,9 @@ This is version 1.0.0.
 
 ## Screen shots
 
+!["Tweeter"](https://github.com/upRos3/tweeter/blob/master/docs/tweeter.png)
+!["Website Overview"](https://github.com/upRos3/tweeter/blob/master/docs/Working-site.png)
+!["Highlighted tweet"](https://github.com/upRos3/tweeter/blob/master/docs/highlighted.png)
 
 ## Authors
 
