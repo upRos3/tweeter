@@ -10,6 +10,7 @@ Everything you will need is within the package.json file.
 
 ```
 * Node.js
+* jQuery
 * Express
 * Chance
 * body-parser
